@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>돌려돌려 돌림판</title>
+	<link rel="stylesheet" type="text/css" href="css/roulette.css">
+	<link rel="stylesheet" type="text/css" href="css/group.css">
+	<link rel="stylesheet" href="css/nice-select.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="wrap-left">
+			<h1 contenteditable="true" spellcheck="false">행운의 돌림판</h1>
+			<canvas width="600" height="600" class="roulette">지원하지 않는 브라우저입니다. Google Chrome 최신 버전을 사용해주세요.</canvas>
+			<div id="roll" class="button roll"></div>
+		</div>
+		<div class="wrap-right">
+			<div id="groupSelect">
+				<div class="title">그룹선택</div>
+				<div class="select">
+					<select id="selectBox" onchange="groupSelected()">
+					</select>
+				</div>
+			</div>
+			<ul class="ru">
+				<li class="item empty" data-chance="0">
+					<div class="item-title" placeholder="이름" contenteditable="true"></div>
+					<div class="item-weight" data-weight="1"></div>
+					<div class="item-weight-add">+</div>
+					<div class="item-weight-sub">-</div>
+					<div class="item-delete">X</div>
+				</li>
+			</ul>
+			<div id="fileButton">
+				<div class="button file load" onclick="loadFile()"></div>
+				<div class="button file save" onclick="saveFile()"></div>
+			</div>
+		</div>
+		<div id="groupEdit">
+			<div class="group-btn" onclick="toggle()">=</div>
+			<div class="group-list-con">
+				<ul class="group-list">
+					<li class="group-item">
+						<div class="group-title" contenteditable="false">그룹 이름</div>
+						<div class="group-delete">[삭제]</div>
+					</li>
+				</ul>
+				<div>
+					<div class="group-add">+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="button-tooltip" style="display: none;">
+		<div><span class="command">Alt + 클릭</span><span class="number">±100</span></div>
+		<div><span class="command">Ctrl + 클릭</span><span class="number">±10</span></div>
+		<div><span class="command">클릭</span><span class="number">±1</span></div>
+	</div>
+	<div id="result" style="display: none;"></div>
+	<script type="text/javascript" src="js/roulette.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript" src="js/list-setting.js"></script>
+</body>
+
+</html>
